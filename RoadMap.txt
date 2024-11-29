@@ -1,0 +1,95 @@
+===== STRUCTURE DU PROJET =====
+
+mon-site-vitrine/
+  ├── public/
+  │   ├── css/
+  │   │   └── style.css
+  │   ├── images/
+  │   └── js/
+  │       └── main.js
+  ├── views/
+  │   ├── partials/
+  │   │   ├── header.ejs
+  │   │   └── footer.ejs
+  │   ├── index.ejs
+  │   ├── boutique.ejs
+  │   ├── guide-entretien.ejs
+  │   └── contact.ejs
+  ├── app.js
+  └── package.json
+
+===== CONFIGURATION DU SERVEUR (APP.JS) =====
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+// Routes
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+app.listen(port, () => {
+    console.log(`Le serveur est lancé sur http://localhost:${port}`);
+});
+
+===== SECTIONS PRINCIPALES (INDEX.EJS) =====
+
+1. Hero Section
+   - Image principale d'un beau coléus
+   - Titre accrocheur
+   - Call-to-action vers la boutique
+
+2. Collection en Vedette
+   - Grille de coléus populaires
+   - Prix et descriptions courtes
+   - Boutons d'achat rapide
+
+3. Guide d'Entretien
+   - Conseils essentiels
+   - Photos explicatives
+   - Lien vers guide complet
+
+4. Notre Histoire
+   - À propos de votre passion
+   - Photos de votre collection
+   - Valeurs de l'entreprise
+
+5. Newsletter
+   - Inscription pour recenus
+   - Promotions exclusives
+
+===== FONCTIONNALITÉS À IMPLÉMENTER =====
+
+1. Système de panier
+2. Filtres de recherche (couleur, taille, prix)
+3. Système de compte client
+4. Blog avec conseils d'entretien
+5. Galerie photos
+6. Formulaire de contact
+7. Integration paiement (Stripe)
+
+===== DESIGN MODERNE =====
+
+- Palette de Couleurs:
+  * Vert émeraude: #2ecc71
+  * Bordeaux: #c0392b
+  * Blanc cassé: #f5f6fa
+  * Gris foncé: #2c3e50
+
+- Typographie:
+  * Titres: Playfair Display
+  * Corps: Raleway
+
+- Éléments de Design:
+  * Design responsive
+  * Animations douces
+  * Images haute qualité
+  * Icônes modernes
+  * Espacement généreux
+
+
+

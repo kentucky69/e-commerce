@@ -1,0 +1,84 @@
+
+==== LES CONCEPTS CLÉS 🔑 ====
+
+1. Repository (Dépôt)
+C'est comme un dossier de projet qui contient tous vos fichiers
+Peut être public ou privé
+Stocke l'historique complet des modifications
+
+2. Fonctionnalités principales
+✷Commit: Une sauvegarde de vos modifications
+
+✷ Branch (Branche):
+Version parallèle de votre code
+Permet de travailler sur des fonctionnalités sans affecter le code principal
+
+✷ Pull Request:
+Demande d'intégration de vos modifications
+Permet la revue de code par d'autres développeurs
+
+✷ Fork:
+Copie personnelle d'un projet
+Permet de contribuer à des projets open source
+
+
+                                        ==== COMMANDES GIT ESSENTIELLES 💻 ====
+
+
+
+==== GIT =====
+    @
+
+# Cloner un repository
+git clone https://github.com/utilisateur/projet.git
+
+==== BRANCHE GIT ==== 🌲🌲  
+
+# Créer une nouvelle branche
+git checkout -b ma-nouvelle-branche
+
+# Travailler sur la branche
+git add .
+git commit -m "Ajout nouvelle feature"
+
+# Fusionner avec main quand c'est prêt
+git checkout main
+git merge feature/ma-feature
+
+
+==== CHECKOUT ☀⥹ ==== 🔄
+
+# 1. Revenir à la branche main locale
+git checkout main
+
+# 2. Récupérer les changements du remote
+git fetch origin main
+
+# 3. Réinitialiser votre branche main locale pour qu'elle corresponde exactement à origin/main
+git reset --hard origin/main
+
+# Revenir à une version précédente
+git checkout ma-branche-precedente
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Ajouter des modifications
+git add .
+
+# Créer un commit
+git commit -m "Description des modifications"
+
+# Envoyer les modifications sur GitHub
+git push origin ma-nouvelle-branche
