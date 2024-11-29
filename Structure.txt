@@ -1,0 +1,440 @@
+==== INITIALISATION DU PROJET🙉 =====
+
+npm init -y
+npm install express ejs
+npm install ejs
+
+==== STRUCTURE DU PROJET  =====
+
+mkdir public views views/partials
+mkdir public/css public/js public/images
+touch app.js
+touch views/index.ejs views/boutique.ejs views/guide-entretien.ejs views/contact.ejs
+touch views/partials/header.ejs views/partials/footer.ejs
+touch public/css/style.css
+touch public/js/main.js
+
+mon-site-vitrine/
+  ├── public/       # Fichiers statiques
+  │   ├── css/
+  │   │   └── style.css
+  │   ├── images/
+  │   └── js/
+  │       └── main.js
+  ├── views/        # Templates EJS  
+  │   ├── partials/
+  │   │   ├── header.ejs
+  │   │   └── footer.ejs
+  │   ├── index.ejs
+  │   ├── boutique.ejs
+  │   ├── guide-entretien.ejs
+  │   └── contact.ejs
+  ├── app.js        # Point d'entrée
+  └── package.json  # Configuration npm
+
+
+    ===== ORGANISATION DES VIEWS =====
+views/
+  ├── partials/           # Composants réutilisables
+  │   ├── header.ejs
+  │   ├── footer.ejs
+  │   └── navbar.ejs
+  ├── layouts/            # Layouts principaux
+  │   └── main.ejs
+  ├── pages/              # Pages principales
+  │   ├── home.ejs
+  │   └── about.ejs
+  └── index.ejs          # Page d'accueil
+
+
+
+
+===== SUGGESTIONS D'AMELIORATION =====
+
+
+mon-site-vitrine/
+    src
+    ├── config/              # Configuration de l'application
+    │   └── database.js     # Configuration de la base de données
+    ├── controllers/         # Logique métier
+    │   ├── homeController.js
+    │   └── shopController.js
+    ├── models/             # Modèles de données
+    │   └── Product.js
+    ├── routes/             # Routes de l'application
+    │   ├── homeRoutes.js
+    │   └── shopRoutes.js
+    ├── middleware/         # Middleware personnalisé
+    │   └── auth.js
+    ├── utils/             # Fonctions utilitaires
+    │   └── helpers.js
+    └── tests/            # Tests unitaires
+
+
+===== EXPLICATIONS =====
+
+📖 config/ : Pour centraliser la configuration
+📖 controllers/ : Pour séparer la logique métier des routes
+📖 models/ : Pour les schémas de données
+📖 routes/ : Pour organiser les routes par fonctionnalité
+📖 middleware/ : Pour les fonctions middleware personnalisées
+📖 utils/ : Pour les fonctions utilitaires réutilisables
+📖 tests/ : Pour les tests unitaires et d'intégration
+
+
+
+
+
+
+==== CONFIGURATION DU SERVEUR (APP.JS)👨‍🔬 =====
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Configuration
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Accueil - Coléus Passion'
+    });
+});
+
+app.get('/boutique', (req, res) => {
+    res.render('boutique', {
+        title: 'Notre Boutique - Coléus Passion'
+    });
+});
+
+app.get('/guide-entretien', (req, res) => {
+    res.render('guide-entretien', {
+        title: 'Guide d\'Entretien - Coléus Passion'
+    });
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact', {
+        title: 'Contact - Coléus Passion'
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Le serveur est lancé sur http://localhost:${port}`);
+});
+
+
+===== LANCEMENT DU SERVEUR 🪪 =====
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  }
+
+
+==== HEADER ET FOOTER 👠 =====
+
+=> header.ejs
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="/">Coléus Passion</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/boutique">Boutique</a></li>
+                <li><a href="/guide-entretien">Guide d'Entretien</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+=> footer.ejs
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Coléus Passion</h3>
+                <p>Votre spécialiste des coléus depuis 2024</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@coleus-passion.fr</p>
+                <p>Tél: 01 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Coléus Passion. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="/js/main.js"></script>
+</body>
+</html>
+
+
+===== PAGE D'ACCUEIL (INDEX.EJS) =====
+
+<%- include('partials/header') %>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Découvrez nos magnifiques Coléus</h1>
+            <p>Des variétés uniques aux couleurs éclatantes</p>
+            <a href="/boutique" class="cta-button">Découvrir la Collection</a>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section class="featured">
+        <h2>Nos Coléus en Vedette</h2>
+        <div class="product-grid">
+            <!-- Exemple de produit -->
+            <div class="product-card">
+                <img src="/images/coleus-1.jpg" alt="Coléus">
+                <h3>Coléus Wizard Jade</h3>
+                <p>24,99 €</p>
+                <button class="add-to-cart">Ajouter au panier</button>
+            </div>
+            <!-- Répéter pour d'autres produits -->
+        </div>
+    </section>
+
+    <!-- Care Guide Preview -->
+    <section class="care-guide">
+        <h2>Guide d'Entretien</h2>
+        <div class="guide-content">
+            <div class="guide-text">
+                <h3>Prenez soin de vos Coléus</h3>
+                <p>Découvrez nos conseils pour garder vos plantes en pleine santé.</p>
+                <a href="/guide-entretien" class="secondary-button">Lire le Guide Complet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Restez Informé</h2>
+        <p>Inscrivez-vous pour recevoir nos actualités et offres exclusives</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Votre email">
+            <button type="submit">S'inscrire</button>
+        </form>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+===== STYLE.CSS 👕 =====
+
+:root {
+    --color-primary: #2ecc71;
+    --color-secondary: #c0392b;
+    --color-background: #f5f6fa;
+    --color-text: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Header Styles */
+.main-header {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('/images/hero-bg.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+.hero-content {
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #27ae60;
+}
+
+/* Featured Section */
+.featured {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Newsletter Section */
+.newsletter {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Footer */
+.main-footer {
+    background: var(--color-text);
+    color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
