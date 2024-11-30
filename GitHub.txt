@@ -43,7 +43,7 @@ git commit -m "Ajout nouvelle feature"
 
 # Fusionner avec main quand c'est prêt
 git checkout main
-git merge feature/ma-feature
+git merge ma-feature
 
 
 ==== CHECKOUT ☀⥹ ==== 🔄
