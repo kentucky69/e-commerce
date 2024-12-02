@@ -1,106 +1,43 @@
-/* Navbar Styles */
-
+/* Navbar */
 .navbar {
+    background-color: white;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa;
-    padding: 1rem 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-logo {
-    height: 40px;
-}
-
-.nav-menu {
+.logo {
     display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
     gap: 2rem;
+    list-style: none;
 }
 
-.nav-link {
-    color: #333;
+.nav-links a {
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: var(--text-color);
+    transition: color 0.3s;
 }
 
-.nav-link:hover {
-    color: #007bff;
+.nav-links a:hover {
+    color: var(--primary-color);
 }
 
-.nav-link.active {
-    color: #007bff;
-}
-
-.nav-toggle {
+.menu-toggle {
     display: none;
-    background: transparent;
-    border: none;
+    font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-}
-
-.hamburger {
-    display: block;
-    position: relative;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-    width: 2em;
-    height: 3px;
-    background-color: #333;
-    transition: transform 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    left: 0;
-}
-
-.hamburger::before {
-    top: -8px;
-}
-
-.hamburger::after {
-    bottom: -8px;
-}
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        flex-direction: column;
-        background-color: #f8f9fa;
-        padding: 1rem 0;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-item {
-        margin: 1rem 0;
-    }
 }

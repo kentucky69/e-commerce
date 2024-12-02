@@ -1,51 +1,82 @@
-<%- include('partials/header') %>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botanica - Template Moderne</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span>Botanica</span>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Accueil</a></li>
+            <li><a href="#">Plantes</a></li>
+            <li><a href="#">Conseils</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Découvrez nos magnifiques Coléus</h1>
-                <p>Des variétés uniques aux couleurs éclatantes</p>
-                <a href="/boutique" class="cta-button">Découvrir la Collection</a>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <ul>
+                <li><i class="fas fa-home"></i> Dashboard</li>
+                <li><i class="fas fa-seedling"></i> Mes Plantes</li>
+                <li><i class="fas fa-calendar"></i> Planning</li>
+                <li><i class="fas fa-tint"></i> Arrosage</li>
+                <li><i class="fas fa-sun"></i> Luminosité</li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>Bienvenue sur Botanica</h1>
+        <div class="cards-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Plante">
+                <h3>Plantes d'intérieur</h3>
+                <p>Découvrez notre sélection de plantes d'intérieur</p>
             </div>
-        </section>
-
-        <!-- Featured Collection -->
-        <section class="featured">
-            <h2>Nos Coléus en Vedette</h2>
-            <div class="product-grid">
-                <!-- Exemple de produit -->
-                <div class="product-card">
-                    <img src="/images/coleus-1.jpg" alt="Coléus">
-                    <h3>Coléus Wizard Jade</h3>
-                    <p>24,99 €</p>
-                    <button class="add-to-cart">Ajouter au panier</button>
-                </div>
-                <!-- Répéter pour d'autres produits -->
-            </div>
-        </section>
-
-        <!-- Care Guide Preview -->
-        <section class="care-guide">
-            <h2>Guide d'Entretien</h2>
-            <div class="guide-content">
-                <div class="guide-text">
-                    <h3>Prenez soin de vos Coléus</h3>
-                    <p>Découvrez nos conseils pour garder vos plantes en pleine santé.</p>
-                    <a href="/guide-entretien" class="secondary-button">Lire le Guide Complet</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="newsletter">
-            <h2>Restez Informé</h2>
-            <p>Inscrivez-vous pour recevoir nos actualités et offres exclusives</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Votre email">
-                <button type="submit">S'inscrire</button>
-            </form>
-        </section>
+            <!-- Ajoutez plus de cards ici -->
+        </div>
     </main>
 
-    <%- include('partials/footer') %>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>Botanica - Votre guide pour prendre soin de vos plantes</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: var(--sidebar-width);
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.sidebar li:hover {
+    color: var(--primary-color);
+}
+
+.sidebar i {
+    margin-right: 1rem;
+}
